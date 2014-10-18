@@ -1,27 +1,16 @@
 (function(window,$){
-
-	$('.nav_top_ul li>a').on('click',function(){
-		$(this).next().addClass("on")sidlings().removeClass('on');
-		/*console.log($())
-		$(this).parents($('#nav_top_ul')).find('ol').removeClass('off');
-		$(this).next().addClass('on');*/
-		/*$(this).toggle(
-		  function () {
-		    $(this).parent().find('ol').css({
-		    	'display':"block",
-		    })
-		  },
-		  function () {
-		    $(this).parent().find('ol').css({
-		    	'display':"none",
-		    })
-		  }
-		);*/
-	})
+	htmlnav()
+	function htmlnav(){
+		$('body').on('click',function(e){
+			$('.nav_top_ul a').parents($('.nav_top_ul li')).siblings().find('ol').removeClass('dis');
+		})
+		/*点击头部的a*/
+		$('.nav_top_ul a').on('click',function(e){
+			$(this).next().toggleClass('dis');
+			e.stopPropagation();
+		})
+		$('.nav_middle ul li').on('mouseover',function(){
+			console.log($(this).size());
+		})
+	}
 })(window,jQuery)
-/*$('.top li span').on('click',function(){
-	$(this).parents($('.top')).find('ol').removeClass('dis');
-	$(this).next().addClass('dis');
-
-})
-*/
